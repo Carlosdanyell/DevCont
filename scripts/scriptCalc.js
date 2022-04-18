@@ -19,6 +19,10 @@ var vlrTotalProventos = document.querySelector('#tl-proventos');
 var tlDescontos = document.querySelector('#tl-descontos');
 var resultSl = document.querySelector('#sl-liquido');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3fc5ec2ae49c4efd02e9c3a8425df48d45c51f27
 
 
 /* --- Main function in which it captures the input value and splits it into two calculation processes. ---*/ 
@@ -182,7 +186,7 @@ aliquotaIrrf.innerHTML = aliIrrf.toFixed(2) + "%";
 
 function reloadPage (){
 
-    history.pushState({}, null , '/index.html#inicio');
+    history.pushState({}, null , '/pageCalc');
 
     window.scrollTo({top:0, behavior:'smooth'})
 
