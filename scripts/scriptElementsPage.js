@@ -1,11 +1,12 @@
 const btnMenu = document.getElementById('btn-menu-mobile');
+const navigation = document.getElementById('menu');
+const headerPage = document.getElementById('center');
 
 function toggleMenu (event){
 
-    
- const navigation = document.getElementById('menu');
-
- navigation.classList.toggle('active');
+ btnMenu.classList.toggle('activebtn')
+ navigation.classList.toggle('active')
+ headerPage.classList.toggle('active')
 
 }
 

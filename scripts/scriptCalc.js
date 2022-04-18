@@ -19,7 +19,6 @@ var vlrTotalProventos = document.querySelector('#tl-proventos');
 var tlDescontos = document.querySelector('#tl-descontos');
 var resultSl = document.querySelector('#sl-liquido');
 
-inputValue.focus();
 
 
 /* --- Main function in which it captures the input value and splits it into two calculation processes. ---*/ 
@@ -127,7 +126,7 @@ value = (value*0.225)-636.13;
 value = (value*0.275)-869.36;
 
 };
-
+console.log(value)
 
 function showResultCalc (result){
 
@@ -139,7 +138,7 @@ function showResultCalc (result){
 
 showResultCalc(value);
 
-return valorIrrf =[value] ; 
+return valorIrrf =[value]; 
 
 };
 

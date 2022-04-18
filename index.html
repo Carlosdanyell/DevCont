@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <link href="./styles/reset.css" rel="stylesheet">
         <link href="./styles/style.css" rel="stylesheet">
+        <link href="./styles/headerStyle.css" rel="stylesheet">
         <script type="text/javascript" src="./scripts/formatInput.js"></script>
         <script type="text/javascript" src="./scripts/scriptElementsPage.js" defer></script>
         <script type="text/javascript" src="./scripts/scriptCalc.js" defer></script>
@@ -13,16 +14,25 @@
     </head>
     <body>
         <header>
-            <div class="center">
+            <div id="center">
                 <div class="logo">
                         <h1>
                             <span>Dev</span>Contábil
                         </h1>
                 </div>
                 <div id="box-menu-mobile">
-                   <button type="button" id="btn-menu-mobile"><img src="./images/menu.png" alt="Botão de menu" id="menu-mobile"></button> 
+                   <button type="button" id="btn-menu-mobile">
+                       <span class="line"></span>
+                       <span class="line"></span>
+                       <span class="line"></span>
+                    </button> 
                 </div>
                 <div id="menu">
+                    <div class="navigation">
+                        <a href="#">
+                            <h3>Sobre</h3><br>
+                        </a>
+                    </div>
                     <div class="navigation">
                         <a href="#">
                             <h3>Notícias</h3><br>
@@ -35,23 +45,23 @@
                     </div>
                     <div class="navigation">
                         <a href="#">
-                             <h3>Serviços</h3><br>
+                            <h3>Serviços</h3><br>
                         </a>
                     </div>
-                       <div class="navigation">
-                             <a href="#">
-                                <h3>Contato</h3><br>
-                            </a>
-                       </div>
+                    <div class="navigation">
+                        <a href="#">
+                            <h3>Contato</h3><br>
+                        </a>
                     </div>
                 </div>
+            </div>    
         </header>
         
         <main>
 
         <div class="titleHead">
             <section id="#inicio">
-                <h2 >Calculadora INSS e IRRF 2022</h2><br>
+                <h2>Calculadora de Salário Líquido 2022</h2><br>
                 <p>Quer saber quanto ganha livre de descontos? Realize o cálculo exato do seu salário líquido com esse simulador!</p>
             </section>
         </div>
@@ -63,8 +73,8 @@
                         <h3>Como calcular</h3>
                         <ol>
                             <li>  Primeiro, preencha com o valor do seu <a href="#info-salario-bruto">salário bruto</a>;</li>
-                            <li>  Em seguida, coloque o valor dos <a href="#info-descontos">descontos</a>, conforme está no seu holerite;</li>
-                            <li>  Para finalizar informe o número de dependentes e vá em “Calcular”.</li>
+                            <li>  Em seguida, coloque o valor dos descontos, conforme está no seu holerite;</li>
+                            <li>  Para finalizar informe o número de <a href="#info-dependentes">dependentes</a> e vá em “Calcular”.</li>
                         </ol>
                    </div>
                     <div id="banner-cacl">
