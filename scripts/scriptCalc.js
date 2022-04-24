@@ -182,7 +182,6 @@ aliquotaIrrf.innerHTML = aliIrrf.toFixed(2) + "%";
 
 function reloadPage (){
 
-    history.pushState({}, null , '/pageCalc');
 
     window.scrollTo({top:0, behavior:'smooth'})
 
