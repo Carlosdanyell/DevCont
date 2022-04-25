@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root{
+    --roxo-claro: #81749c;
+    --roxo-escuro: #2b1464;
+    --azul-escuro: #8daec3;
+    --azul-claro: #c5dfe0;
+    --amarelo-claro: #fcfce2;
+    --cor-titulo: #2c3357;
+}
+
 header{
     margin: 0 auto;
-    background: #282447;
+    background: var(--roxo-escuro);
+    height: 102px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #center{
@@ -9,21 +22,24 @@ header{
     align-items: center;
     margin: 0 auto;
     padding: 0 2%;  
-    border-bottom: 2px solid #8739f9;               
+    border-bottom: 2px solid #8739f9;
+    height: 100px;               
 }
 
 .logo{
     width: 50%;
-    font-family: 'Raleway', Arial; 
-    font-weight:bold; 
-    font-size: 2.5rem;   
+    font-size: 2.5rem; 
+    font-weight:600;  
     margin: 1em;
     display: inline-block;
     text-align: center;
     color: #ffffff;
 }
 .logo h1 span{       
-    color:#dddddd;
+        color: #ffffff;
+}
+.logo h2{
+    font-size: 1rem;
 }
 
 #menu{
@@ -70,6 +86,9 @@ header{
 #center.active h1 span{
     color: #000000;
 }
+#center.active h2{
+    color: #000000;
+}
 
 #menu{
     font-family: 'Raleway', Arial; 
@@ -78,7 +97,7 @@ header{
     flex-direction: column;
     justify-content: flex-start;
     width:100%;
-    top: 122px;
+    top: 104px;
     right: 0px;
     background: #ffffff;
     z-index: 1000;
