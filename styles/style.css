@@ -4,10 +4,11 @@
 :root{
     --roxo-claro: #81749c;
     --roxo-escuro: #2b1464;
-    --azul-escuro: #8daec3;
+    --azul-escuro: #00286d;
     --azul-claro: #c5dfe0;
     --amarelo-claro: #fcfce2;
     --cor-titulo: #2c3357;
+    --verde-agua: #17e7e7;
 }
 
     html{
@@ -34,21 +35,15 @@
                 padding: .6em;
             }
             #banner-cacl{
-                max-width: 50%;
+                width: 50%;
                 box-sizing: border-box;
                 padding: 2em 0;
             }
-            @media (max-width:925px){
-                #banner-cacl{
-                    max-width: 70%;
-                }
-            }
-            @media (max-width:500px){
+            @media (max-width:750px){
                 #banner-cacl{
                     width: 100%;
                 }
             }
-
 
 
 
@@ -102,12 +97,12 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                border: 2px solid rgba(97, 21, 221, 1);
+                border: 2px solid var(--verde-agua);
                 box-sizing: border-box;
                 font-size: 15px;
                 padding-bottom: 1px;
                 padding-left: 1px;
-                background: rgba(97, 21, 221, 1);
+                background: var(--verde-agua);
             }
 
            .box-calc{
@@ -165,13 +160,13 @@
                width: 200px;
            }
            #dinheiro:focus{
-            box-shadow: 0 0 9px #bd7afc;
+            box-shadow: 0 0 9px var(--verde-agua);
            }
            #inputDescontos:focus{
-            box-shadow: 0 0 9px #bd7afc;
+            box-shadow: 0 0 9px var(--verde-agua);
            }
            #dependente:focus{
-            box-shadow: 0 0 9px #bd7afc;
+            box-shadow: 0 0 9px var(--verde-agua);
            }
 
            @media (max-width:670px){
@@ -199,7 +194,7 @@
                 border-radius: 25px;
                 color: #ffffff;
                 padding: 10px;
-                background: #820ad1;
+                background: #17e7e7;
                 border: 1px solid;
                 font-weight: bold;
                 font-size: 1em;
@@ -211,14 +206,14 @@
                 background: #000;
             }
             #btn-calc:hover{
-                border:1px solid #820ad1;
+                border:1px solid #000;
                 background: #ffffff;
                 color: #282447;
             }
             #btn-clear:hover{
                 border:1px solid #282447;
                 background: #ffffff;
-                color: #820ad1;
+                color: #000;
             }
            
            #info-result{
@@ -249,7 +244,7 @@
 
            .cel-header-table{
                font-weight: 500;
-               background: #820ad1;
+               background: var(--azul-escuro);
                color:#ffffff;
                font-family: 'Raleway', Arial; 
                font-weight: bold;
@@ -294,6 +289,7 @@
            .section-info-calc{
             display: flex;
             flex-direction: column;
+            align-items: center;
             box-sizing: border-box;
             font-family: 'Raleway', Arial; 
             width: 100%;
@@ -317,6 +313,15 @@
            .p-info-calc span{
                 font-weight: bold;
            }
+
+           #info-salario-bruto{
+               padding: 0 1em;
+               width: 100%;
+           }
+           #info-descontos{
+               padding: 0 1em;
+               width: 100%;
+           }
            .table-inss{
                padding: 1em;
            }
@@ -325,7 +330,7 @@
            }
            .cel-h1-inss-table, .cel-h-inss-table{
                 color: #fff;
-                background: #000;
+                background: var(--azul-escuro);
                 text-align: center;
                 justify-items: center;
                 width: 400px;
@@ -352,37 +357,6 @@
                 text-align: left;
             }
 
-           footer{
-            display: flex;
-            background: var(--roxo-escuro);   
-            text-decoration: none;
-            text-align: center;
-            font-size: 1em;
-            justify-content: space-around;
-        }
-        .logo-footer{
-            font-family: 'Montserrat', sans-serif;
-            width: 50%;
-            font-size: 2.5rem; 
-            font-weight:600;  
-            margin: 1em;
-            display: inline-block;
-            text-align: center;
-            color: #ffffff;
-        }
-        .logo-footer h2{
-            font-size: 1rem;
-        }
-        .redes-sociais{
-            display: flex;
-            width: 50%;
-            justify-content: center;
-            gap: 15px;
-        }
-        .redes-sociais a {
-            display: flex;
-            align-items: center;
-        }
 
         @media only screen and (max-width: 500px) {
             .box-calc{

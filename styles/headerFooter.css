@@ -3,15 +3,16 @@
 :root{
     --roxo-claro: #81749c;
     --roxo-escuro: #2b1464;
-    --azul-escuro: #8daec3;
-    --azul-claro: #c5dfe0;
+    --azul-escuro: #304d63;
+    --HFcolor: #fff;
     --amarelo-claro: #fcfce2;
     --cor-titulo: #2c3357;
+    --verde-agua: #17e7e7;
 }
 
 header{
     margin: 0 auto;
-    background: var(--roxo-escuro);
+    background: var(--HFcolor);
     height: 102px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -22,7 +23,7 @@ header{
     align-items: center;
     margin: 0 auto;
     padding: 0 2%;  
-    border-bottom: 2px solid #8739f9;
+    border-bottom: 2px solid var(--azul-escuro);
     height: 100px;               
 }
 
@@ -33,13 +34,14 @@ header{
     margin: 1em;
     display: inline-block;
     text-align: center;
-    color: #ffffff;
+    color: #00286d;
 }
 .logo h1 span{       
-        color: #ffffff;
+        color: #000;
 }
 .logo h2{
     font-size: 1rem;
+    color: #000;
 }
 
 #menu{
@@ -63,7 +65,7 @@ header{
    height: 25px;
    transition: 2s;
    cursor: pointer;
-   color: #ffffff;
+   color: #000;
 }
 .navigation:hover{
    border-bottom: 1px solid white;
@@ -81,7 +83,7 @@ header{
     background-color: #ffffff;
 }
 #center.active h1{
-    color: #8739f9;
+    color: var(--azul-escuro);
 }
 #center.active h1 span{
     color: #000000;
@@ -97,7 +99,7 @@ header{
     flex-direction: column;
     justify-content: flex-start;
     width:100%;
-    top: 104px;
+    top: 103px;
     right: 0px;
     background: #ffffff;
     z-index: 1000;
@@ -129,7 +131,7 @@ header{
     display: block;
     width: 40px;
     height: 3px;
-    background-color: #ecf0f1;
+    background-color: #000;
     margin-block: 10px;
     border-radius: 4px;
     transition: transform .5s,
@@ -159,4 +161,37 @@ header{
     padding: 140px 2em 2em 2em;
 }
 
+}
+footer{
+    display: flex;
+    background: #1f2933;   
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    justify-content: space-around;
+    border-top: 1px solid var(--azul-escuro);
+}
+.logo-footer{
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+    font-size: 2.5rem; 
+    font-weight:600;  
+    margin: 1em;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+}
+
+.logo-footer h2{
+    font-size: 1rem;
+}
+.redes-sociais{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 15px;
+}
+.redes-sociais a {
+    display: flex;
+    align-items: center;
 }
