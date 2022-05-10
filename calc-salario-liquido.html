@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./styles/reset.css" rel="stylesheet" />
+    <link href="./styles/page-calc-salario.css" rel="stylesheet" />
     <link href="./styles/headerFooter.css" rel="stylesheet" />
-    <link href="./styles/main-style" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+    <script type="text/javascript" src="./scripts/formatInput.js"></script>
     <script type="text/javascript" src="./scripts/scriptElementsPage.js" defer></script>
+    <script type="text/javascript" src="./scripts/scriptCalc.js" defer></script>
     
-    <title>Devcont</title>
+    <title>Calculadora Salario</title>
 </head>
 <body>
     <nav>
@@ -54,39 +56,208 @@
             </button> 
         </div>
     </nav>
-
+    
     <main>
-        <section id="home">
-            <div class="wraper">
-                <header>
-                    <h4>Bem vindo a DevCont Contabilidade</h4>
-                    <h1>Conheça mais sobre quem somos!!</h1>
-                </header>
-            </div>
-
+    <div class="hero-section">
+        <section id="#inicio">
+            <h2>Calculadora de Salário Líquido 2022</h2><br>
+            <p>Quer saber quanto ganha livre de descontos?<br> Realize o cálculo exato do seu salário líquido com esse simulador!</p>
         </section>
-    </main>
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+        <div id="banner-cacl">
+            <img src="./assets/asset1.jpg" alt="Ilustração de pessoas calculando">
         </div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-<footer>
-    <div class="logo-footer">
-        <h1>
-            <span>Dev</span>Cont
-        </h1>
-        <h2>Contabilidade</h2>
+
+    <div class="container">
+        
+        <div class="container-calc">
+            <div class="instruction-calc">
+                <div id="box-instruction-calc">
+                    <h3>Como calcular</h3>
+                    <ol>
+                        <li>  Primeiro, preencha com o valor do seu salário bruto;</li>
+                        <li>  Em seguida, coloque o valor dos descontos, conforme está no seu holerite;</li>
+                        <li>  Para finalizar informe o número de dependentes e vá em “Calcular”.</li>
+                    </ol>
+                </div>
+            </div>
+    
+            <div class="box-calc"> 
+                
+                    <h2>Salário bruto mensal</h2>
+
+                    <div id="label-din">
+                        <label for="dinheiro" id="lbldin">R$</label>
+                        <input type="text" id="dinheiro"  placeholder="insira o valor" onkeyup="formatarMoeda1()">
+                    </div>
+
+                    <h2>Descontos (opcional)</h2>
+                    <div id="label-din">
+                        <label for="descontos" id="lbldin">R$</label>
+                        <input type="text" id="inputDescontos"  placeholder="insira o valor" onkeyup="formatarMoeda2()">
+                    </div>
+                    <div id="label-depen">
+                        <label for="dependente" id="lbldep">Dependentes</label>
+                        <input type="number" id="dependente" placeholder="0" >
+                    </div>
+            
+                    <div class="buttons">
+                        <button type="button" id="btn-calc"><a href="#info-result">calcular</a></button>
+                        <button type="button" id="btn-clear">Limpar</button>
+                    </div>
+            </div>
+        </div>
+        <section id="info-result">
+            <h4>
+                Está atualizado com Tabela IRRF 2022 e com a Tabela INSS 2022 divulgada pela 
+                previdência. 
+                <a href="https://www.in.gov.br/en/web/dou/-/portaria-interministerial-mtp/me-n-12-de-17-de-janeiro-de-2022-375006998">
+                    Portaria interministerial MTP/ME Nº 12, de 17 de Janeiro de 2022 
+                </a>
+                - fonte: previdencia.gov.br
+            </h4>    
+            <div class="table-result" >
+                <table>
+                    <tbody>
+    
+                        <tr id="header1-table">
+                            <td class="cel-header-table">Evento</td>
+                            <td class="cel-header-table">alíquota Real</td>
+                            <td class="cel-header-table">Proventos</td>
+                            <td class="cel-header-table">Descontos</td>             
+                        </tr>
+                        <tr>
+                            <td class="cel-result-table" id="eventos">Salário Bruto</td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                            <td class="cel-result-table" id="vlr-bruto"><span class="coin">R$ </span>0</td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                        </tr>
+    
+                        <tr id="header2-table">
+                            <td class="cel-result-table" id="eventos">Outros</td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                            <td class="cel-result-table" id="cel-table-desconto"><span class="coin">R$ </span>0</td>
+                        </tr>
+                        <tr>
+                            <td class="cel-result-table" id="eventos">INSS</td>
+                            <td class="cel-result-table" id="ali-inss">0<span class="coin">%</span></td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                            <td class="cel-result-table" id="result-inss"><span class="coin">R$ </span>0</td>
+                        </tr>
+    
+                        <tr id="header3-table">
+                            <td class="cel-result-table" id="eventos">IRRF</td>
+                            <td class="cel-result-table" id="ali-irrf">0<span class="coin">%</span></td>
+                            <td class="cel-result-table" style="text-align: center;">-</td>
+                            <td class="cel-result-table" id="result-irrf"><span class="coin">R$ </span>0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="cel-result-table" id="cel-table-total">Total</td>
+                            <td class="cel-result-table" id="tl-proventos"><span class="coin">R$ </span>0</td>
+                            <td class="cel-result-table" id="tl-descontos"><span class="coin">R$ </span>0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="cel-result-table" id="cel-table-liquido">Salaŕio Líquido</td>
+                            <td class="cel-result-table" id="sl-liquido"><span class="coin">R$ </span>0</td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-info-calc">
+            <h1 class="title-info-calc">
+                Entenda o cálculo
+            </h1>
+            <div id="info-salario-bruto">
+                <h2 class="title-info-calc">
+                    O que é o salário bruto?
+                </h2>
+                <p class="p-info-calc">
+                    O salário bruto é o valor resultante de descontos, obrigatórios e opcionais,
+                        ou acréscimos como horas extras e adicionais de periculosidade e insalubridade. 
+                </p>
+            </div>
+            <div id="info-descontos">
+                <h2 class="title-info-calc">
+                    Quais são os descontos permitidos por lei?
+                </h2>
+                <p class="p-info-calc">
+                    Geralmente, os descontos mais comuns são o INSS e o imposto de Renda.
+                        Mas outros também são permitidos, vejamos a seguir.
+                </p>
+                <p class="p-info-calc">
+                    <span>INSS</span> – O INSS é um desconto obrigatório na folha de pagamentos do trabalhador. 
+                        Com isso, o trabalhador se torna segurado do Instituto, tendo direito a diversos benefícios previdenciários
+                            como a aposentadoria.
+                </p>
+                <p class="p-info-calc">
+                    Dependendo do valor do salário, há um percentual de desconto. Veja para os casos de empregado, 
+                    empregado doméstico e trabalhador avulso:
+                </p>
+                <br>
+                <div class="table-inss" >
+                    <table>
+                        <tbody>
+                            <tr id="header1-table">
+                                <td class="cel-h1-inss-table">Salário Contribuição</td>
+                                <td class="cel-h-inss-table">alíquotas (%)</td>
+                                <td class="cel-h-inss-table">Parcela a deduzir</td>          
+                            </tr>
+                            <tr>
+                                <td class="cel1-inss-table">até R$ 1.212,00</td>
+                                <td class="cel-inss-table">7,50</td>
+                                <td class="cel-inss-table">-</td>                     
+                            </tr>
+                            <tr>
+                                <td class="cel1-inss-table">de R$ 1.212,01 até R$ 2.427,35</td>
+                                <td class="cel-inss-table">9,00</td>
+                                <td class="cel-inss-table">R$ 18,18</td>                     
+                            </tr>
+                            <tr>
+                                <td class="cel1-inss-table">de R$ 2.427,36 até R$ 3.641,03</td>
+                                <td class="cel-inss-table">12,00</td>
+                                <td class="cel-inss-table">R$ 91,00</td>                     
+                            </tr>
+                            <tr>
+                                <td class="cel1-inss-table">de R$ 3.641,04 até R$ 7.087,22</td>
+                                <td class="cel-inss-table">14,00</td>
+                                <td class="cel-inss-table">R$ 163,82</td>                     
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="celt-inss-table">O valor máximo do INSS do segurado empregado é R$ 7.087,22 (teto)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
+
+        </section>
     </div>
-    <div class="redes-sociais">
-        <a target="_blank" href="https://www.instagram.com/carlos_danyell_/"><img src="./assets/insta.png" style="width: 25px;height: 25px;"></a>
-        <a target="_blank" href="https://www.linkedin.com/in/carlosdanyell"><img src="./assets/linkedin.png" style="width: 25px;height: 25px;"></a> 
-    </div>
-</footer>
+    </main> 
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+    <footer>
+        <div class="logo-footer">
+            <h1>
+                <span>Dev</span>Cont
+            </h1>
+            <h2>Contabilidade</h2>
+        </div>
+        <div class="redes-sociais">
+            <a target="_blank" href="https://www.instagram.com/carlos_danyell_/"><img src="./assets/insta.png" style="width: 25px;height: 25px;"></a>
+            <a target="_blank" href="https://www.linkedin.com/in/carlosdanyell"><img src="./assets/linkedin.png" style="width: 25px;height: 25px;"></a> 
+        </div>
+    </footer>
 </body>
 </html>

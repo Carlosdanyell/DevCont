@@ -1,0 +1,24 @@
+/*=== Root =================================*/
+:root{
+    --hue: 180;
+    --cor-principal: hsl(var(--hue), 100%, 26%);
+    --cor-principal-light: hsl(calc(var(--hue)-32), 23%, 89%); 
+    --cor-principal-light2: hsl(var(--hue) 14%, 97%);
+    --cor-bege-light: hsl(39, 100%, 97%);
+    --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%);
+    --header-color: hsl(0, 0%, 100%);
+    --header-scroll: hsl(var(--hue), 100%, 26%);
+    --verde-agua: hsl(180, 82%, 50%);
+
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+}
+#home{
+    padding: 1rem;
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+}
+header{
+    padding: 2rem;
+}
