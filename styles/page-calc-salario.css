@@ -1,5 +1,5 @@
 /*=== Root =================================*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root{
     --hue: 180;
     --cor-principal: hsl(var(--hue), 100%, 26%);
@@ -308,7 +308,6 @@ table{
 }
 
 .cel-header-table{
-    font-weight: 500;
     background: var(--cor-principal);
     color:#ffffff;
     font-weight: 700;
@@ -327,8 +326,7 @@ border: 1px solid black;
 }
 .cel-result-table, .cel-inss-table{
 text-align: end;
-font-family: 'Roboto Mono', monospace;
-font-weight: 500;
+font-family: 'Roboto', sans-serif;
 }
 
 #sl-liquido{
@@ -406,8 +404,8 @@ width: 150px;
 
 .cel-inss-table, .cel1-inss-table, .celt-inss-table{
 text-align: center;
-font-size: .8em;
-font-family: 'Roboto Mono', monospace;
+font-size: 1rem;
+font-family: 'Roboto', sans-serif;
 border-bottom: solid 1px;
 padding: 1em .5em;
 border: 1px solid black;
