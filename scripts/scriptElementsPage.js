@@ -2,6 +2,7 @@ const btnMenu = document.getElementById('btn-menu-mobile');
 const navigation = document.getElementById('menu');
 const body = document.querySelector('body');
 const header = document.querySelector('nav');
+const linksMenu = document.querySelector('.navigation');
 
 function toggleMenu (event){
 
@@ -19,5 +20,6 @@ function onScroll(){
 }
 
 
-window.addEventListener('scroll', onScroll)
+window.addEventListener('scroll', onScroll);
 btnMenu.addEventListener('click', toggleMenu);
+linksMenu.addEventListener('click', toggleMenu);

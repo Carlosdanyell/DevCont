@@ -185,7 +185,7 @@ function reloadPage (){
 
     window.scrollTo({top:0, behavior:'smooth'})
 
-    window.location.reload(true);
+    
     inputValue.value = "";
     inputDescontos.value ="";
     inputDpvalue.value = "";

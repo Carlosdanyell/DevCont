@@ -1,6 +1,6 @@
 /*=== Root =================================*/
 :root{
-    --hue: 180;
+    --hue: 209;
     --cor-principal: hsl(var(--hue), 100%, 26%);
     --cor-principal-light: hsl(calc(var(--hue)-32), 23%, 89%); 
     --cor-principal-light2: hsl(var(--hue) 14%, 97%);
@@ -8,7 +8,6 @@
     --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%)A;
     --header-color: hsl(0, 0%, 100%);
     --header-scroll: hsl(var(--hue), 100%, 26%);
-    --verde-agua: hsl(180, 82%, 50%);
    
     --header-heigth: 7.5rem;
 
@@ -26,6 +25,7 @@ nav{
     height: var(--header-heigth);
     margin: 0;
     box-sizing: border-box;
+    z-index: 100;
 
     background: var(--header-color);
     transition: .5s;
