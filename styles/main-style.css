@@ -11,7 +11,7 @@
     --header-scroll: hsl(var(--hue), 100%, 26%);
     --cor-titulo:hsl(105, 100%, 5%);
     --cor-paragrafo:hsl(104, 16%, 24%);
-
+    --cor-cinza-escuro: hsl(210, 1%, 36%);
     font-size: 62.5%;
     font-family: 'DM Sans', sans-serif;
 }
@@ -97,6 +97,7 @@ header h1{
 }
 .contact-button:hover{
     background-color: #d64a42;
+    color: #fff;
 }
 /*=== Home section =================================*/
 #home{
@@ -168,6 +169,7 @@ header h1{
     flex-direction: column;
     border: 1px solid var(--cor-principal-light);
     padding: 2rem;
+
     text-align: left;
     border-radius: 2.4rem;
     box-shadow: 0 1rem 3rem rgba(31,45,61,.125);
@@ -175,7 +177,7 @@ header h1{
 }
 #services .card:hover{
     transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 3rem var(--cor-principal-light2);
+    box-shadow: 0 1.5rem 3rem var(--cor-principal-light2);
 }
 #services .card img{
     width: 4rem;
@@ -226,6 +228,8 @@ header h1{
     display: flex;
     flex-direction: column;
     gap: 3rem;
+
+
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--cor-paragrafo);
@@ -233,7 +237,6 @@ header h1{
     text-align: left;
 }
 #services .differential ul li{
-    /* border: 1px solid var(--cor-principal-light); */
     background-color: var(--cor-bege-light);
     padding: 1rem;
     border-radius: 2.4rem;
@@ -271,7 +274,9 @@ header h1{
     z-index: -10;
 }
 #business-model{
-    background: linear-gradient(to bottom ,#d1ebff,#f0f8ff);
+    background: linear-gradient(to bottom ,#f0f8ff,#d1ebff);
+    position: relative;
+    bottom: -1rem;
 }
 #business-model p{
     font-size: 1.6rem;
@@ -280,6 +285,7 @@ header h1{
     color: var(--cor-paragrafo);
     text-align: left;
     margin-block: 2rem;
+    padding-block: 1.5rem;
 }
 #business-model .buttons-services{
     display: flex;
@@ -309,12 +315,22 @@ header h1{
     background-color: var(--cor-principal);
     box-shadow: 0 3px #0e173f
 }
-#business-model .content .steps{
+#business-model .content .steps, .showing{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5rem;
     margin-top: 10rem;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform 800ms;
+}
+#business-model .content .hidden{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10%);
 }
 #business-model .content .steps .step{
     display: flex;
@@ -360,41 +376,38 @@ header h1{
 /*=== Depositions section =================================*/
 
 #depositions{
-    padding-top: 10rem;
-    background-color: #F9F9F9;
+    position: relative;
+    top: -0.1rem;
+    padding-top: 2rem;
+    background-color: #ffffff;
 }
 
 #depositions .content .comments-cards{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 8rem;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+
+    padding-block: 4rem;
+    margin-top: 7rem;
+    margin-bottom: -7rem;
 }
 #depositions .content .card-comment{
     cursor: pointer;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
+    min-width: 80%;
+    scroll-snap-align: start;
     padding: 2rem;
     background-color: var(--cor-principal-light2);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.095);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.095);
     border-radius: 1.5rem;
-    opacity: 0;
 
     transition: transform 800ms;
 }
 
-#depositions .content .show{
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-#depositions .content .hidden{
-    position: absolute;
-    visibility: hidden;
-
-    transform: translateY(-30%);
-}
 #depositions .content .card-comment p{
     text-align: left;
     margin-block: 2rem;
@@ -413,20 +426,289 @@ header h1{
     height: 4.2rem;
     border-radius: 50%;
 }
-#depositions .buttons-slide{
+
+/*=== Depositions section/ contact-us =================================*/
+#depositions .contact-us{
     display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 90%;
+    margin-inline: auto;
+    bottom: -13rem;
+    padding-block: 2rem;
+    border-radius: 1rem;
+
+    background-color: #1971C2;
+}
+#depositions .contact-us h3{
+    color:#ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-block: 2rem;
+}
+#depositions .contact-us p{
+    color: #ffffff;
+}
+#depositions .contact-button{
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    width: fit-content;
+    gap: 1.6rem;
+    padding: 1.6rem 3.2rem;
+    border: none;
+    border-radius: 4rem;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    color: var(--cor-principal);
+    transition: background 200ms;
+}
+#depositions .contact-button:hover{
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+/*=== About section =================================*/
+#about{
+    background-color: var(--cor-bege-light);
+    padding: 2rem;
+    padding-bottom: 2rem;
+}
+#about h4{
+    margin-top: 18rem;
+}
+#about .content p{
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-block: 2.5rem;
+}
+#about .content h3{
+    margin-top: 2rem;
+
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--cor-principal);
+}
+#about .content ul{
+    list-style:disc;
+    text-align: left;
+    margin-left: 3rem;
+    color: var(--cor-paragrafo);
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding-block: 1rem;
+    margin-bottom: 2rem;
+}
+#about img{
+    width: 100%;
+    border-radius: .6rem;
+}
+#about .contact-button{
+    margin-block: 4rem;
+}
+/*=== About >> accordion*/
+#accordion{
+    padding-block: 5rem;
+    background: hsl(0, 0%, 99%);
+    
+}
+#accordion h3{
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-block: 1rem;
+}
+#accordion .accordion-item{
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+
+
+#accordion .accordion-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding-left: 2rem; 
+    padding-right: 1rem;
+    height: 8rem;
+    font-size: 1.6rem;
+    color: var(--cor-titulo);
+    background-color: #fcfcfc;
+    border: none;
+    border-bottom: .8px solid #6c757d;
+    text-align: left;
+    cursor: pointer;
+}
+#accordion .accordion-button.active{
+    color: var(--cor-principal);
+}
+#accordion .accordion-button.active .i-arrow svg{
+    transform: rotate(180deg);
+}
+#accordion .accordion-button.active .i-arrow svg line{
+    stroke: #1971C2;
+}
+#accordion .content-accordion-show{
+    height: 100%;
+    padding-left: 1rem;
+    opacity: 1;
+    background:hsl(209, 14%, 97%);
+    visibility: visible;
+    transition: all 0.5s;
+}
+#accordion .content-accordion-hidden{
+    padding-left: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    height: 1rem;
+}
+#accordion .accordion-body{
+    padding-block: 1rem;
+    text-align: left;
+    font-size: 1.6rem;
+    color: var(--cor-paragrafo);
+    line-height: 2.4rem;
+}
+/*=== Contact section =================================*/
+#contact{
+    padding-top: 5rem;
+}
+#contact .content{
+    padding: 2rem;
+    margin-block: 3.2rem;
+}
+#contact .content h5{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: var(--cor-titulo);
+    margin-block: 1.6rem;
+}
+#contact .form{
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: hsl(209, 14%, 97%);
+    text-align: left;
+}
+#contact .form h3{
+    text-align: left;
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: 700;
+    margin-block: 2rem;
+}
+#contact .form p{
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-block: 2.5rem;
+}
+#contact .inputs{
+    margin-block: 3rem;
+}
+#contact .label{
+    margin-bottom: 2rem;
+}
+#contact .label{
+    margin-block: auto;
+}
+#contact .text-input{
+    box-sizing: border-box;
+    padding: 0.9rem;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #272530;
+    font-size: 1.6rem;
+    outline: none;
+    transition: all 0.3s;
+    margin-top: .5rem;
+    background: hsl(209, 14%, 97%);
+}
+#contact .text-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #f6f7f8 inset;
+}
+#contact .text-input-area{
+    box-sizing: border-box;
+    padding: 0.9rem;
+    max-width: 100%;
+    border: none;
+    border: 2px solid #272530;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    outline: none;
+    transition: all 0.3s;
+    margin-top: .5rem;
+    background: hsl(210, 12%, 97%);
+}
+#contact .div-input-check{
+    display: flex;
     align-items: center;
     padding: 1.5rem;
+}
+#contact .text-input-check{
+    width: 2rem;
+}
+#contact .text-input:focus{
+    border-bottom: 2px solid var(--cor-principal);
+}
+#contact .text-input-area:focus{
+    border: 2px solid var(--cor-principal);
+}
+#contact .text-input::placeholder{
+    font-size: 1.6rem;
+    transition: all 0.3s;    
+}
+#contact .submit-btn{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.2rem;
     gap: 1rem;
-}
-#depositions .buttons-slide button{
     border: none;
-    background: transparent;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    background-color: #56bd5b;
 }
-#depositions button svg{
-    fill: #f9d4d2;
+#background-section{
+    width: 100%;
+    height: 20rem;
+    position: relative;
+    bottom: -10rem;
+    z-index: -1;
 }
-#depositions button.active svg{
-    fill: #e6544c;
+.last-section{
+    background: #212529;
+    padding-block: 2rem;
+    color: #fff;
+}
+.last-section h2{
+    margin-top: 1.6rem;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: #fff;
+}
+.last-section a{
+    width: 30rem;
+    border-radius: 1rem;
+    margin-block: 4rem;
+    padding: 2rem;
 }

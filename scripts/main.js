@@ -4,6 +4,8 @@ ScrollReveal({
     distance: '50px',
     duration: 1500
   }).reveal(`
+        #home header,
+        #home .content,
         #home .stat,
         #services,
         #services header,
@@ -11,15 +13,33 @@ ScrollReveal({
         #depositions header
   `);
   ScrollReveal({
-    origin: 'left',
+    origin: 'bottom',
     distance: '100px',
-    duration: 1500
+    duration: 1800
   }).reveal(`
         #business-model header h4,
         #business-model header h2,
-        #business-model header p,
-        #business-model .content .step
+        #business-model header p
   `);
+
+// reveal cards of section #services >> differential
+  ScrollReveal({
+    origin: 'left',
+    distance: '80px',
+    duration: 2500
+  }).reveal(`
+        #home img,
+        #services .differential .card-left
+  `);
+
+  ScrollReveal({
+    origin: 'bottom',
+    distance: '80px',
+    duration: 2500
+  }).reveal(`
+        #services .differential .card-bottom
+  `);
+
   ScrollReveal({
     origin: 'top',
     distance: '50px',
@@ -27,69 +47,75 @@ ScrollReveal({
   }).reveal(`
         #depositions .comments-cards
   `);
-ScrollReveal({
-    origin: 'bottom',
-    distance: '100px',
-    duration: 2000
-}).reveal(`
-        #services .differential li
-`);
 
 /*Funcionalidade do seletor de serviços */
 
+const btnService1 = document.getElementById('contabilidade-completa');
+const btnService2 = document.getElementById('consultoria');
+var secservice1 = document.getElementById('secservice1');
+var secservice2 = document.getElementById('secservice2');
+
+function showSecService1(){
+
+    btnService2.classList.remove('selected')
+    btnService1.classList.add('selected')
+
+    secservice2.classList.remove('showing')
+    secservice2.classList.add('hidden')
+
+    secservice1.classList.remove('hidden')
+    secservice1.classList.add('showing')
+};
+
+function showSecService2(){
+
+  btnService1.classList.remove('selected')
+  btnService2.classList.add('selected')
+
+  secservice1.classList.remove('showing')
+  secservice1.classList.add('hidden')
+
+  secservice2.classList.remove('hidden')
+  secservice2.classList.add('showing')
+};
+
+btnService1.addEventListener('click',showSecService1);
+btnService2.addEventListener('click',showSecService2);
 
 
+/*Funcionalidade do accordion */
+
+const buttonsAccordion = document.querySelectorAll('.accordion-button');
 
 
-/*Funcionalidade dos cards decomentario */
-const buttonSlide1 = document.getElementById('button-slide1');
-const buttonSlide2 = document.getElementById('button-slide2');
+function showAccordion1(){
+ var contenAccordion = document.getElementById('flush-collapseOne')
 
-var cardsCommentari = document.querySelectorAll('.card-comment');
-var arrayNode = Array.from(cardsCommentari)
+  buttonsAccordion[0].classList.toggle('active')
 
-var Card1 = arrayNode[0];
-var Card2 = arrayNode[1];
-var Card3 = arrayNode[2];
-var Card4 = arrayNode[3];
+  contenAccordion.classList.toggle('content-accordion-hidden')
+  contenAccordion.classList.toggle('content-accordion-show')
 
+};
+function showAccordion2(){
+  var contenAccordion = document.getElementById('flush-collapseTwo')
 
-const showComents1 = () =>{
+   buttonsAccordion[1].classList.toggle('active')
 
-    Card3.classList.remove('show');
-    Card4.classList.remove('show');
-    Card3.classList.add('hidden');
-    Card4.classList.add('hidden');
+   contenAccordion.classList.toggle('content-accordion-hidden')
+   contenAccordion.classList.toggle('content-accordion-show')
 
-    Card1.classList.add('show');
-    Card2.classList.add('show');
-    Card1.classList.remove('hidden');
-    Card2.classList.remove('hidden');
+ };
+ function showAccordion3(){
+  var contenAccordion = document.getElementById('flush-collapseThree')
+
+   buttonsAccordion[2].classList.toggle('active')
   
+   contenAccordion.classList.toggle('content-accordion-hidden')
+   contenAccordion.classList.toggle('content-accordion-show')
+ 
+ };
 
-    buttonSlide2.classList.remove('active')
-    buttonSlide1.classList.add('active')
-
-};
-const showComents2 = () =>{
-
-  Card1.classList.remove('show');
-  Card2.classList.remove('show');
-  Card1.classList.add('hidden');
-  Card2.classList.add('hidden');
-
-
-  Card3.classList.add('show');
-  Card4.classList.add('show');
-  Card3.classList.remove('hidden');
-  Card4.classList.remove('hidden');
-
-  buttonSlide1.classList.remove('active')
-  buttonSlide2.classList.add('active')
-
-};
-
-
-buttonSlide1.addEventListener('click', showComents1);
-buttonSlide2.addEventListener('click', showComents2);
-
+buttonsAccordion[0].addEventListener('click', showAccordion1)
+buttonsAccordion[1].addEventListener('click', showAccordion2);
+buttonsAccordion[2].addEventListener('click', showAccordion3);

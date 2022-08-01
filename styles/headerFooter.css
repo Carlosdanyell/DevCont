@@ -32,6 +32,7 @@ nav{
 }
 nav.scroll {
     background-color: var(--header-scroll);
+    opacity: 0.8;
     transition: .5s;
 }
 
@@ -44,7 +45,6 @@ nav.scroll #btn-menu-mobile .line{
 nav.scroll #menu .navigation ul li a{
     color: white;
     font-weight: 400;
-    opacity: 0.6;
     transition: color 300ms;
 }
 nav.scroll #menu .navigation ul li a:hover{
@@ -105,12 +105,18 @@ nav.scroll #menu .btn-contato:hover{
    padding: 5px 0;
    height: 25px;
    font-size: 1.5rem;
-   cursor: pointer;
    color: #000;
 }
 .navigation ul li{
     box-sizing: border-box;
     padding: 1rem;
+    cursor: pointer;
+}
+.navigation ul li a{
+    opacity: 0.6;
+}
+.navigation ul li a:hover{
+    opacity: 1;
 }
 .navigation ul li a::after{
   content: "";
@@ -164,6 +170,7 @@ nav.scroll .btn-contato:hover{
     }
     body.hidden nav{
         background-color: var(--cor-principal);
+        opacity: 1;
     }
     body.hidden a svg path{
         fill: #fff;
@@ -251,6 +258,9 @@ nav.scroll .btn-contato:hover{
         color: #fff;
         opacity: 1;
         font-size: 2.4rem;
+    }
+    #menu .navigation ul li a{
+        opacity: 1;
     }
     .btn-contato{
         width: 25.5rem;
