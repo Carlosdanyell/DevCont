@@ -1,2 +1,2 @@
 Web page DevCont acconting
-link page: https://carlosdanyell.github.io/DevCont/
+link page: https://carlosdanyell.github.io/devcount/
