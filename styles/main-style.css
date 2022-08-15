@@ -2,9 +2,9 @@
 :root{
     --hue: 209;
     --cor-principal: hsl(var(--hue), 100%, 26%);
-    --cor-principal-light: #d1ebff;
-    --cor-principal-light2: #f0f8ff;
-    --cor-bege-light: hsl(42, 100%, 98%);
+    --cor-principal-light: hsl(calc(var(--hue) - 3), 100%, 91%);
+    --cor-principal-light2: hsl(calc(var(--hue) - 1), 100%, 97%);
+    --cor-bege-light: #fffcf5;
     --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%);
     --cor-laranja: #e6544c;
     --header-color: hsl(206, 100%, 97%);
@@ -113,7 +113,7 @@ header h1{
     z-index: -1;
     display: block;
     width: 100%;
-    height: calc(15rem + 100%);
+    height: 101rem;
 }
 
 #home .contact-button{
@@ -216,7 +216,7 @@ header h1{
 #services a:hover{
     background:#d64a42;
 }
-#services .differential{
+/* #services .differential{
     width: 100%;
     margin-block: 4rem;
 }
@@ -266,7 +266,7 @@ header h1{
 
 #services .differential ul li:hover{
     transform: translateX(1.05rem);
-}
+} */
 /*=== Businnes-Model section =================================*/
 .transition-bg{
 	position: relative;
@@ -274,7 +274,7 @@ header h1{
     z-index: -10;
 }
 #business-model{
-    background: linear-gradient(to bottom ,#f0f8ff,#d1ebff);
+    background: linear-gradient(to bottom,#f2f8ff, #fdfdfd, #f2f8ff);
     position: relative;
     bottom: -1rem;
 }
@@ -376,31 +376,36 @@ header h1{
 /*=== Depositions section =================================*/
 
 #depositions{
+    box-sizing: border-box;
     position: relative;
     top: -0.1rem;
-    padding-top: 2rem;
+    padding-top: 5rem;
     background-color: #ffffff;
 }
 
-#depositions .content .comments-cards{
-    display: flex;
-    gap: 2rem;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
+/*=== SWiper Js =================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-    padding-block: 4rem;
-    margin-top: 7rem;
-    margin-bottom: -7rem;
-}
-#depositions .content .card-comment{
+.slide-container{
+    box-sizing: border-box;
+    max-width: 1012px;
+    width: min(112rem, 100%);
+    margin-top: 5rem;
+  }
+  .slide-content{
+    margin: 0;
+    overflow: hidden;
+  }
+
+  #depositions .content .card-comment{
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    min-width: 80%;
-    scroll-snap-align: start;
+    max-width: 30rem;
+    height: 32rem;
     padding: 2rem;
+    margin-block: 4rem;
     background-color: var(--cor-principal-light2);
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.095);
     border-radius: 1.5rem;
@@ -426,6 +431,41 @@ header h1{
     height: 4.2rem;
     border-radius: 50%;
 }
+
+  
+#depositions .swiper-navBtn{
+    color: var(--cor-principal);
+    transition: color 0.3s ease;
+  }
+  #depositions .swiper-navBtn:hover{
+    color: #4070F4;
+  }
+  #depositions .swiper-navBtn::before,
+  .swiper-navBtn::after{
+    font-size: 35px;
+  }
+  #depositions .swiper-button-next{
+    right: 0;
+  }
+  #depositions .swiper-button-prev{
+    left: 0;
+  }
+  #depositions .swiper-pagination-bullet{
+    background-color: #6E93f7;
+    opacity: 1;
+  }
+  #depositions .swiper-pagination-bullet-active{
+    background-color: #4070F4;
+  }
+
+  @media(max-width: 500px) {
+    #depositions .slide-content{
+      margin: 0;
+    }
+    #depositions .swiper-navBtn{
+        display: none;
+      }
+  }
 
 /*=== Depositions section/ contact-us =================================*/
 #depositions .contact-us{
@@ -516,7 +556,7 @@ header h1{
 /*=== About >> accordion*/
 #accordion{
     padding-block: 5rem;
-    background: hsl(0, 0%, 99%);
+    background: #fcfcfc;
     
 }
 #accordion h3{
@@ -707,8 +747,183 @@ header h1{
     color: #fff;
 }
 .last-section a{
-    width: 30rem;
+    width: 80%;
     border-radius: 1rem;
     margin-block: 4rem;
     padding: 2rem;
+}
+#backToTopBtn{
+    position: fixed;
+    bottom: 1rem;
+    right: .5rem;
+
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+}
+#backToTopBtn.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+/*=== Screen 1024 =================================*/
+@media (min-width: 1024px) {
+    body {
+        overflow: auto;
+      }
+    .wraper{
+        width: min(112rem, 100%);
+        display: grid;
+    }
+    section {
+        padding-block: 5rem;
+      }
+    
+    section header h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+    }
+    /*=== Home section =================================*/
+    #home{
+        padding-top: 12rem;
+    }
+    #home::before{
+        height: 60rem;
+    }
+    #home .wraper{
+        grid-template-columns: 56rem 1fr;
+        grid-template-areas:
+        'A B'
+        'C C';
+    }
+    #home .wraper .col-a {
+        grid-area: A;
+        text-align: left;
+        padding-left: 5rem;
+        align-self: center;
+      }
+      #home .wraper h1{
+        font-size: 4rem;
+      }
+      #home .wraper p{
+        text-align: left;
+     }
+     #home .wraper .contact-button{
+        margin-inline: 0;
+        margin-top: 1rem;
+      }
+    #home .wraper img{
+        width: 100%;
+        max-height: 42rem;
+        height: 100%;
+        object-position: -1rem 0;
+        object-fit: cover;
+    }
+    #home .wraper .col-b {
+        grid-area: B;
+        display: flex;
+        align-items: flex-end;
+      }
+      #home .stats{
+        grid-area: C;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 0;
+        padding-block: 6rem;
+      }
+      #home .stats::before{
+        display: none;
+      }
+      #home .stats .stat{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: center;
+      }
+      #home .stats .stat + .stat{
+        border-left: 1px solid var(--cor-principal);
+      }
+
+    /*=== Services section =================================*/
+      #services .cards{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #services .cards .card{
+        width: 25%;
+        height: 31rem;
+        flex-grow: 1;
+        justify-content: space-between;
+      }
+      #services .cards .card h3{
+        margin-block:0;
+      }
+
+/*=== Businnes-Model section =================================*/
+    #business-model .buttons-services{
+        display: flex;
+        justify-content: center;
+    }
+    #business-model button{
+        width: 30rem;
+        padding: 2rem;
+    }
+    #business-model .content{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:'A B';
+    }
+    #business-model .content .steps{
+        gap: 5rem;
+        justify-content: center;
+    }
+    #business-model .content .steps.col-a{
+        grid-area: A;
+    }
+    #business-model .content .steps.col-b{
+        grid-area: B;
+    }
+    #business-model .content .steps .step{
+        width: 35rem;
+        height: 30rem;
+        display: flex;
+        justify-content: space-between;
+    }
+/*=== Depositions section =================================*/
+    #depositions .contact-us{
+        bottom: -16rem;
+    }
+/*=== About section =================================*/
+    #about{
+        background-image: linear-gradient(to right top, #fffcf5, #fffbf3, #fffbf0, #fffaee, #fff9ec);
+    }
+    #about .wraper{
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "A B";
+        padding-block: 5rem;
+        padding-inline: 0;
+        margin-top: 13rem;
+    }
+
+    #about .wraper .col-a {
+        grid-area: A;
+        align-self: center;
+        padding: 1rem;
+        text-align: left;
+        padding-left: 3rem;
+    } 
+    #about .wraper h4{
+        text-align: center;
+        margin-top: 0;
+    }  
+    #about .wraper .col-b {
+        grid-area: B;
+    }
+    #about .wraper .col-b img{
+        max-width: 67rem;
+        z-index: 5;
+    }
+
+
 }
