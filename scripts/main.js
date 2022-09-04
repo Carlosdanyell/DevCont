@@ -14,7 +14,7 @@ ScrollReveal({
   `);
   ScrollReveal({
     origin: 'bottom',
-    distance: '100px',
+    distance: '30px',
     duration: 1800
   }).reveal(`
         #business-model header h4,
@@ -47,6 +47,45 @@ ScrollReveal({
   }).reveal(`
         #depositions .comments-cards
   `);
+
+/*Funcionalidade stats*/
+var divStat = document.querySelector('.stat')
+var statNumber1 = document.getElementById('statNumber1')
+var statNumber2 = document.getElementById('statNumber2')
+var statNumber3 = document.getElementById('statNumber3')
+
+var count1 = 0;
+var count2 = 0;
+var count3 = 0;
+
+
+  var load = setInterval(setStatNumber,80)
+
+
+var positionElStat = (divStat.getBoundingClientRect().top) -10;
+var positionLoad = window.innerHeight;
+var dif = positionElStat-positionLoad;
+
+function setStatNumber(){
+  if(positionElStat < positionLoad || scrollY > dif){
+    if(count1 < 20){
+      count1 += 1;
+      statNumber1.textContent = "+" + count1;
+
+    }else if(count2 < 15){
+      count2 += 1;
+      statNumber2.textContent = "+" + count2;
+    }else if(count3 < 10){
+      count3 += 1;
+      statNumber3.textContent = "+" + count3;
+    }else{
+      clearInterval(load)
+    }
+  }
+
+
+}
+
 
 /*Funcionalidade do seletor de serviços */
 
@@ -85,37 +124,28 @@ btnService2.addEventListener('click',showSecService2);
 
 /*Funcionalidade do accordion */
 
-const buttonsAccordion = document.querySelectorAll('.accordion-button');
+var buttonsAccordion = document.querySelectorAll('.accordion-button');
 
 
-function showAccordion1(){
- var contenAccordion = document.getElementById('flush-collapseOne')
+const accordionCreate = (i) =>{
 
-  buttonsAccordion[0].classList.toggle('active')
+  var iArray = i -1;
 
-  contenAccordion.classList.toggle('content-accordion-hidden')
-  contenAccordion.classList.toggle('content-accordion-show')
+  var clsContentAccordion = `flush-collapse${i}`;
 
-};
-function showAccordion2(){
-  var contenAccordion = document.getElementById('flush-collapseTwo')
+  function showAccordion(c){
 
-   buttonsAccordion[1].classList.toggle('active')
+    var contenAccordion = document.getElementById(c)
 
-   contenAccordion.classList.toggle('content-accordion-hidden')
-   contenAccordion.classList.toggle('content-accordion-show')
+    buttonsAccordion[iArray].classList.toggle('active')
+   
+    contenAccordion.classList.toggle('content-accordion-hidden')
+    contenAccordion.classList.toggle('content-accordion-show')
+  }
+  buttonsAccordion[iArray].addEventListener('click', function() {showAccordion(clsContentAccordion)})
+}
 
- };
- function showAccordion3(){
-  var contenAccordion = document.getElementById('flush-collapseThree')
-
-   buttonsAccordion[2].classList.toggle('active')
-  
-   contenAccordion.classList.toggle('content-accordion-hidden')
-   contenAccordion.classList.toggle('content-accordion-show')
- 
- };
-
-buttonsAccordion[0].addEventListener('click', showAccordion1)
-buttonsAccordion[1].addEventListener('click', showAccordion2);
-buttonsAccordion[2].addEventListener('click', showAccordion3);
+accordionCreate(1);
+accordionCreate(2);
+accordionCreate(3);
+accordionCreate(4);

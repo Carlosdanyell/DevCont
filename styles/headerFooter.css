@@ -19,7 +19,6 @@ nav{
     position: fixed;
     top: 0;
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 100%;
     height: var(--header-heigth);
@@ -29,6 +28,11 @@ nav{
 
     background: var(--header-color);
     transition: .5s;
+}
+.nav-wraper, .footer-wraper{
+    width: min(1440px,100%);
+    display: flex;
+    margin-inline: auto;
 }
 nav.scroll {
     background-color: var(--header-scroll);
@@ -162,7 +166,9 @@ nav.scroll .btn-contato:hover{
     color: var(--cor-principal);
     cursor: pointer;
 }
-
+nav .redes-sociais{
+    display: none;
+}
 @media (max-width:850px){
 
     body.hidden{
@@ -175,15 +181,15 @@ nav.scroll .btn-contato:hover{
     body.hidden a svg path{
         fill: #fff;
     }
-    nav{
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
+    .nav-wraper{
+        max-width: 1174px;
         width: 100%;
+        display: flex;
+        margin-inline: auto;
+        justify-content: space-between;
     }
     nav .logo{
-        width: 50%;
+        width: 60%;
     }
 
     #box-menu-mobile{
@@ -221,10 +227,12 @@ nav.scroll .btn-contato:hover{
         rotate(-45deg);
     }
     #menu{
-        width: 5rem;
+        width: 1px;
+        padding: 0;
         position: relative;
         visibility: hidden;
         transform: translateY(100%);
+
     }
     #menu.active {
         padding: 0;
@@ -257,7 +265,15 @@ nav.scroll .btn-contato:hover{
         margin-top: 2rem;
         color: #fff;
         opacity: 1;
-        font-size: 2.4rem;
+        font-size: 1.6rem;
+    }
+    .navigation ul li{
+        box-sizing: border-box;
+        padding: 1rem;
+        cursor: pointer;
+        width: 79%;
+        text-align: left;
+        border-bottom: 1px solid;
     }
     #menu .navigation ul li a{
         opacity: 1;
@@ -271,6 +287,10 @@ nav.scroll .btn-contato:hover{
         background-color: #fff;
         color: var(--cor-principal);
     }
+   nav .redes-sociais{
+        display: flex;
+        margin-top: 1.6rem;
+    }
 }
 footer{
     padding-top: 2rem;
@@ -279,14 +299,18 @@ footer{
     text-align: center;
     justify-content: space-around;
 }
+.footer-wraper{
+    flex-direction: column;
+}
 .headerFooter{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 1rem;
     gap:1rem
 }
 .logo-footer{
+    width: min(25rem, 50%);
     font-family: 'Montserrat', sans-serif;
     font-size: 3.7rem; 
     font-weight: 700;  
@@ -299,6 +323,7 @@ footer{
     font-size: 1.5rem;
 }
 .redes-sociais{
+    width: min(20rem, 50%);
     display: flex;
     padding: 1rem;
     justify-content: center;

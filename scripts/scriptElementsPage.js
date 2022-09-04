@@ -1,9 +1,10 @@
-const btnMenu = document.getElementById('btn-menu-mobile');
-const navigation = document.getElementById('menu');
-const body = document.querySelector('body');
-const header = document.querySelector('nav');
-const linksMenu = document.querySelector('.navigation');
-const BackToTopBtn = document.getElementById('backToTopBtn')
+var btnMenu = document.getElementById('btn-menu-mobile');
+var navigation = document.getElementById('menu');
+var body = document.querySelector('body');
+var header = document.querySelector('nav');
+var linksMenu = document.querySelector('.navigation');
+var btnContactMenu = document.getElementById('btn-contact-menu')
+var BackToTopBtn = document.getElementById('backToTopBtn')
 
 function toggleMenu (event){
 
@@ -37,4 +38,4 @@ function showBackToTopBtn(){
 window.addEventListener('scroll', onScroll);
 btnMenu.addEventListener('click', toggleMenu);
 linksMenu.addEventListener('click', toggleMenu);
-
+btnContactMenu.addEventListener('click', toggleMenu);
