@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"/>
     <script type="text/javascript" src="./scripts/formatInput.js"></script>
-    <script type="text/javascript" src="./scripts/scriptElementsPage.js" defer></script>
     <script type="text/javascript" src="./scripts/scriptCalc.js" defer></script>
+ 
     
     <title>Calculadora Salario</title>
 </head>
@@ -64,186 +64,245 @@
             </div>
         </div>
     </nav>
-    
     <main>
-    <div class="hero-section">
-        <section id="#inicio">
-            <h2>Calculadora de Salário Líquido 2022</h2><br>
-            <p>Quer saber quanto ganha livre de descontos?<br> Realize o cálculo exato do seu salário líquido com esse simulador!</p>
-        </section>
-        <div id="banner-cacl">
-            <img src="./assets/vetor de personagens calculando.png" alt="Ilustração de pessoas calculando">
-        </div>
-    </div>
-
-    <div class="container">
-        
-        <div class="container-calc">
-            <div class="instruction-calc">
-                <div id="box-instruction-calc">
-                    <h3>Como calcular</h3>
-                    <ol>
-                        <li>  Primeiro, preencha com o valor do seu salário bruto;</li>
-                        <li>  Em seguida, coloque o valor dos descontos, conforme está no seu holerite;</li>
-                        <li>  Para finalizar informe o número de dependentes e vá em “Calcular”.</li>
-                    </ol>
+        <section id="hero-section">
+            <div class="wraper">
+                <div class="col-a">
+                    <header>
+                        <h1>Calculadora de Salário Líquido 2023</h1><br>
+                        <p>Quer saber quanto ganha livre de descontos?<br> Realize o cálculo exato do seu salário líquido com esse simulador!</p>
+                    </header>
                 </div>
             </div>
-            
-            <div class="box-calc"> 
-                
-                    <h2>Salário bruto mensal</h2>
-
-                    <div id="label-din">
-                        <label for="dinheiro" id="lbldin">R$</label>
-                        <input type="text" id="dinheiro"  placeholder="insira o valor" onkeyup="formatarMoeda1()">
+        </section>
+        
+        <section id="container-calc">
+            <div class="wraper">
+                <div class="line-a">
+                    <div class="box-calc">                    
+                        <div class="display-inputs">
+                            <div class="box-input">
+                                <p>Salário bruto mensal</p>
+                                <div class="box-label-money">
+                                    <label for="dinheiro" id="lbldin">R$</label>
+                                    <input type="text" id="dinheiro"  placeholder="insira o valor" onkeyup="formatarMoeda1()">
+                                </div>
+                            </div>
+                            <div class="box-input">
+                                <p>Descontos (opcional)</p>
+                                <div class="box-label-money">
+                                    <label for="descontos" id="lbldin">R$</label>
+                                    <input type="text" id="inputDescontos"  placeholder="insira o valor" onkeyup="formatarMoeda2()">
+                                </div>
+                            </div>
+                            <div id="box-label-depen">
+                                <label for="dependente" id="lbldep">Dependentes</label>
+                                <input type="number" id="dependente" placeholder="0" >
+                            </div>
+                           
+                        </div>
+                            <div class="buttons">
+                                <button type="button" id="btn-calc"><a href="#info-result">calcular</a></button>
+                                <button type="button" id="btn-clear">Limpar</button>
+                            </div>
                     </div>
-
-                    <h2>Descontos (opcional)</h2>
-                    <div id="label-din">
-                        <label for="descontos" id="lbldin">R$</label>
-                        <input type="text" id="inputDescontos"  placeholder="insira o valor" onkeyup="formatarMoeda2()">
+                </div>
+                <div class="line-b">
+                    <div id="box-instruction-calc">
+                        <h4>instruções</h4>
+                        <h2>Como calcular</h2>
+                        <ol>
+                            <li>  Primeiro, preencha com o valor do seu salário bruto;</li>
+                            <li>  Em seguida, coloque o valor dos descontos como vales ou pensão, conforme está no seu holerite;</li>
+                            <li>  Para finalizar informe o número de dependentes e vá em “Calcular”.</li>
+                        </ol>
                     </div>
-                    <div id="label-depen">
-                        <label for="dependente" id="lbldep">Dependentes</label>
-                        <input type="number" id="dependente" placeholder="0" >
-                    </div>
-            
-                    <div class="buttons">
-                        <button type="button" id="btn-calc"><a href="#info-result">calcular</a></button>
-                        <button type="button" id="btn-clear">Limpar</button>
-                    </div>
-            </div>
-        </div>
-        <section id="info-result">
-            <h4>
-                Está atualizado com Tabela IRRF 2022 e com a Tabela INSS 2022 divulgada pela 
-                previdência. 
-                <a href="https://www.in.gov.br/en/web/dou/-/portaria-interministerial-mtp/me-n-12-de-17-de-janeiro-de-2022-375006998">
-                    Portaria interministerial MTP/ME Nº 12, de 17 de Janeiro de 2022 
-                </a>
-                - fonte: previdencia.gov.br
-            </h4>    
-            <div class="table-result" >
-                <table>
-                    <tbody>
-    
-                        <tr id="header1-table">
-                            <td class="cel-header-table">Evento</td>
-                            <td class="cel-header-table">alíquota Real</td>
-                            <td class="cel-header-table">Proventos</td>
-                            <td class="cel-header-table">Descontos</td>             
-                        </tr>
-                        <tr>
-                            <td class="cel-result-table" id="eventos">Salário Bruto</td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                            <td class="cel-result-table" id="vlr-bruto"><span class="coin">R$ </span>0</td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                        </tr>
-    
-                        <tr id="header2-table">
-                            <td class="cel-result-table" id="eventos">Outros</td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                            <td class="cel-result-table" id="cel-table-desconto"><span class="coin">R$ </span>0</td>
-                        </tr>
-                        <tr>
-                            <td class="cel-result-table" id="eventos">INSS</td>
-                            <td class="cel-result-table" id="ali-inss">0<span class="coin">%</span></td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                            <td class="cel-result-table" id="result-inss"><span class="coin">R$ </span>0</td>
-                        </tr>
-    
-                        <tr id="header3-table">
-                            <td class="cel-result-table" id="eventos">IRRF</td>
-                            <td class="cel-result-table" id="ali-irrf">0<span class="coin">%</span></td>
-                            <td class="cel-result-table" style="text-align: center;">-</td>
-                            <td class="cel-result-table" id="result-irrf"><span class="coin">R$ </span>0</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="cel-result-table" id="cel-table-total">Total</td>
-                            <td class="cel-result-table" id="tl-proventos"><span class="coin">R$ </span>0</td>
-                            <td class="cel-result-table" id="tl-descontos"><span class="coin">R$ </span>0</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="cel-result-table" id="cel-table-liquido">Salaŕio Líquido</td>
-                            <td class="cel-result-table" id="sl-liquido"><span class="coin">R$ </span>0</td>
-                        </tr>
-    
-                    </tbody>
-                </table>
-            </div>
+                </div>
+            </div> 
         </section>
 
-        <section class="section-info-calc">
-            <h1 class="title-info-calc">
-                Entenda o cálculo
-            </h1>
-            <div id="info-salario-bruto">
-                <h2 class="title-info-calc">
-                    O que é o salário bruto?
-                </h2>
-                <p class="p-info-calc">
-                    O salário bruto é o valor resultante de descontos, obrigatórios e opcionais,
-                        ou acréscimos como horas extras e adicionais de periculosidade e insalubridade. 
-                </p>
-            </div>
-            <div id="info-descontos">
-                <h2 class="title-info-calc">
-                    Quais são os descontos permitidos por lei?
-                </h2>
-                <p class="p-info-calc">
-                    Geralmente, os descontos mais comuns são o INSS e o imposto de Renda.
-                        Mas outros também são permitidos, vejamos a seguir.
-                </p>
-                <p class="p-info-calc">
-                    <span>INSS</span> – O INSS é um desconto obrigatório na folha de pagamentos do trabalhador. 
-                        Com isso, o trabalhador se torna segurado do Instituto, tendo direito a diversos benefícios previdenciários
-                            como a aposentadoria.
-                </p>
-                <p class="p-info-calc">
-                    Dependendo do valor do salário, há um percentual de desconto. Veja para os casos de empregado, 
-                    empregado doméstico e trabalhador avulso:
-                </p>
-                <br>
-                <div class="table-inss" >
+        <section id="info-result" class="hidden">
+            <div class="wraper">
+                <h4>Salário líquido 2023</h4>
+                
+                <div class="table-result" >
                     <table>
                         <tbody>
+        
                             <tr id="header1-table">
-                                <td class="cel-h1-inss-table">Salário Contribuição</td>
-                                <td class="cel-h-inss-table">alíquotas (%)</td>
-                                <td class="cel-h-inss-table">Parcela a deduzir</td>          
+                                <td class="cel-header-table">Evento</td>
+                                <td class="cel-header-table">alíquota Real</td>
+                                <td class="cel-header-table">Proventos</td>
+                                <td class="cel-header-table">Descontos</td>             
                             </tr>
                             <tr>
-                                <td class="cel1-inss-table">até R$ 1.212,00</td>
-                                <td class="cel-inss-table">7,50</td>
-                                <td class="cel-inss-table">-</td>                     
+                                <td class="cel-result-table" id="eventos">Salário Bruto</td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                                <td class="cel-result-table" id="vlr-bruto"><span class="coin">R$ </span>0</td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                            </tr>
+        
+                            <tr id="header2-table">
+                                <td class="cel-result-table" id="eventos">Outros</td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                                <td class="cel-result-table" id="cel-table-desconto"><span class="coin">R$ </span>0</td>
                             </tr>
                             <tr>
-                                <td class="cel1-inss-table">de R$ 1.212,01 até R$ 2.427,35</td>
-                                <td class="cel-inss-table">9,00</td>
-                                <td class="cel-inss-table">R$ 18,18</td>                     
+                                <td class="cel-result-table" id="eventos">INSS</td>
+                                <td class="cel-result-table" id="ali-inss">0<span class="coin">%</span></td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                                <td class="cel-result-table" id="result-inss"><span class="coin">R$ </span>0</td>
+                            </tr>
+        
+                            <tr id="header3-table">
+                                <td class="cel-result-table" id="eventos">IRRF</td>
+                                <td class="cel-result-table" id="ali-irrf">0<span class="coin">%</span></td>
+                                <td class="cel-result-table" style="text-align: center;">-</td>
+                                <td class="cel-result-table" id="result-irrf"><span class="coin">R$ </span>0</td>
                             </tr>
                             <tr>
-                                <td class="cel1-inss-table">de R$ 2.427,36 até R$ 3.641,03</td>
-                                <td class="cel-inss-table">12,00</td>
-                                <td class="cel-inss-table">R$ 91,00</td>                     
+                                <td colspan="2" class="cel-result-table" id="cel-table-total">Total</td>
+                                <td class="cel-result-table" id="tl-proventos"><span class="coin">R$ </span>0</td>
+                                <td class="cel-result-table" id="tl-descontos"><span class="coin">R$ </span>0</td>
                             </tr>
                             <tr>
-                                <td class="cel1-inss-table">de R$ 3.641,04 até R$ 7.087,22</td>
-                                <td class="cel-inss-table">14,00</td>
-                                <td class="cel-inss-table">R$ 163,82</td>                     
+                                <td colspan="3" class="cel-result-table" id="cel-table-liquido">Salário Líquido</td>
+                                <td class="cel-result-table" id="sl-liquido"><span class="coin">R$ </span>0</td>
                             </tr>
-                            <tr>
-                                <td colspan="3" class="celt-inss-table">O valor máximo do INSS do segurado empregado é R$ 7.087,22 (teto)</td>
-                            </tr>
+        
                         </tbody>
                     </table>
                 </div>
-            </div>    
-
+                <p>
+                    Está atualizado com Tabela IRRF 2023 e com a Tabela INSS 2023 divulgada pela 
+                    previdência. 
+                    <a href="https://www.in.gov.br/web/dou/-/portaria-interministerial-mps/mf-n-26-de-10-de-janeiro-de-2023-457160869">
+                        PORTARIA INTERMINISTERIAL MPS/MF Nº 26, DE 10 DE JANEIRO DE 2023
+                    </a>
+                    - fonte: previdencia.gov.br
+                </p> 
+            </div>
         </section>
-    </div>
+
+        <section id="section-info-calc">
+            <div class="wraper">
+                <h4>Entenda</h4>
+                <h2>Como funciona o cálculo</h2>
+                <div class="box-info">
+                    <p class="p-info-calc">
+                        O salário bruto é o valor resultante de descontos, obrigatórios e opcionais,
+                            ou acréscimos como horas extras e adicionais de periculosidade e insalubridade. 
+                    </p>
+                </div>
+                <div class="box-info">
+                    <h2 class="title-info-calc">
+                        Quais são os descontos permitidos por lei?
+                    </h2>
+                    <p class="p-info-calc">
+                        Geralmente, os descontos mais comuns são o INSS e o imposto de Renda.
+                         Mas outros também são permitidos, vejamos a seguir.
+                    </p>
+                        <br>
+                        <h5>Contribuição previdenciária (INSS)</h5>
+                        <p class="p-info-calc">
+                            <span>INSS</span> – O INSS é um desconto obrigatório na folha de pagamentos do trabalhador. 
+                                Com isso, o trabalhador se torna segurado do Instituto, tendo direito a diversos benefícios previdenciários 
+                                como a aposentadoria.
+                            <br>
+                            Dependendo do valor do salário, há um percentual de desconto. Veja para os casos de empregado, 
+                            empregado doméstico e trabalhador avulso:
+                            <br>
+                        </p>
+                    <div class="table-patern" >
+                        <table>
+                            <tbody>
+                                <tr id="header1-table">
+                                    <td class="cel-h1-patern-table">Salário Contribuição</td>
+                                    <td class="cel-h-patern-table">alíquotas (%)</td>
+                                    <td class="cel-h-patern-table">Parcela a deduzir</td>          
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">até R$ 1.212,00</td>
+                                    <td class="cel-patern-table">7,50</td>
+                                    <td class="cel-patern-table">-</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">de R$ 1.212,01 até R$ 2.427,35</td>
+                                    <td class="cel-patern-table">9,00</td>
+                                    <td class="cel-patern-table">R$ 18,18</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">de R$ 2.427,36 até R$ 3.641,03</td>
+                                    <td class="cel-patern-table">12,00</td>
+                                    <td class="cel-patern-table">R$ 91,00</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">de R$ 3.641,04 até R$ 7.087,22</td>
+                                    <td class="cel-patern-table">14,00</td>
+                                    <td class="cel-patern-table">R$ 163,82</td>                     
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="celt-patern-table">O valor máximo do INSS do segurado empregado é R$ 7.087,22 (teto)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>    
+                <div class="box-info">
+                    <h5>Imposto de renda retido na fonte (IRRF)</h5>
+                    <p class="p-info-calc">
+                        <span>IRRF</span> – IRRF quer dizer Imposto de Renda Retido na Fonte. Todo mês, uma porcentagem referente ao imposto de renda 
+                        é descontada da folha de pagamento do trabalhador, o que impacta no cálculo do salário líquido.<br>
+                         Contudo, existe a possibilidade de recuperar esse dinheiro, com a restituição de imposto de renda, resultado da declaração anual prevista em Lei
+                        <br>
+                    </p>
+                    <h6> Tabela do imposto de renda retido na fonte (IRRF)</h6>
+                    <p class="p-info-calc">
+                        Assim como o INSS, o IRRF é obrigatório. Ele, por sua vez, é calculado após o INSS e há um valor legal por dependente (R$189,59) que é deduzido do salário bruto.<br>
+                         Além disso, o IRRF varia de acordo com a faixa salarial. A diferença é que a base do cálculo é o salário bruto menos o desconto do INSS.
+                         <br>
+                    <p>
+                    <div class="table-patern" >
+                        <table>
+                            <tbody>
+                                <tr id="header1-table">
+                                    <td class="cel-h1-patern-table">Base de cálculo</td>
+                                    <td class="cel-h-patern-table">alíquotas (%)</td>
+                                    <td class="cel-h-patern-table">Parcela a deduzir</td>          
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">Até R$ 1.903,98</td>
+                                    <td class="cel-patern-table">Isento de imposto de renda</td>
+                                    <td class="cel-patern-table">-</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">De R$1.903,99 até R$2.826,65</td>
+                                    <td class="cel-patern-table">7,50</td>
+                                    <td class="cel-patern-table">R$ 142,80</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">De 2.826,66 a R$ 3.751,05</td>
+                                    <td class="cel-patern-table">15,00</td>
+                                    <td class="cel-patern-table">R$ 354,80</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">De 3.751,06 a R$ 4.664,68</td>
+                                    <td class="cel-patern-table">22,50</td>
+                                    <td class="cel-patern-table">R$ 636,13</td>                     
+                                </tr>
+                                <tr>
+                                    <td class="cel1-patern-table">Acima de R$ 4.664,68</td>
+                                    <td class="cel-patern-table">27,50</td>
+                                    <td class="cel-patern-table">R$ 869,36</td>                     
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main> 
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
@@ -276,5 +335,48 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript">
+        var btnMenu = document.getElementById('btn-menu-mobile');
+        var navigation = document.getElementById('menu');
+        var body = document.querySelector('body');
+        var header = document.querySelector('nav');
+        var linksMenu = document.querySelector('.navigation');
+        var btnContactMenu = document.getElementById('btn-contact-menu')
+        var BackToTopBtn = document.getElementById('backToTopBtn')
+
+        function toggleMenu (event){
+
+        btnMenu.classList.toggle('activebtn')
+        navigation.classList.toggle('active')
+        body.classList.toggle('hidden')
+
+        };
+
+        function onScroll(){
+            showNavOnScroll()
+            showBackToTopBtn()
+        };
+
+        function showNavOnScroll (){
+            if(scrollY > 0){
+                header.classList.add('scroll');
+            }else{
+                header.classList.remove('scroll');
+            }
+        };
+
+        function showBackToTopBtn(){
+            if(scrollY >900){
+                BackToTopBtn.classList.add('show')
+            }else{
+                BackToTopBtn.classList.remove('show')
+            }
+        }
+
+        window.addEventListener('scroll', onScroll);
+        btnMenu.addEventListener('click', toggleMenu);
+        linksMenu.addEventListener('click', toggleMenu);
+        btnContactMenu.addEventListener('click', toggleMenu);
+    </script>
 </body>
 </html>

@@ -2,12 +2,16 @@
 :root{
     --hue: 209;
     --cor-principal: hsl(var(--hue), 100%, 26%);
-    --cor-principal-light: hsl(calc(var(--hue)-32), 23%, 89%); 
-    --cor-principal-light2: hsl(var(--hue) 14%, 97%);
-    --cor-bege-light: hsl(39, 100%, 97%);
-    --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%)A;
-    --header-color: hsl(0, 0%, 100%);
+    --cor-principal-light: hsl(206, 100%, 91%);
+    --cor-principal-light2: hsl(208, 100%, 97%);
+    --cor-bege-light: #fffcf5;
+    --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%);
+    --cor-laranja: #e6544c;
+    --header-color: hsl(206, 100%, 97%);
     --header-scroll: hsl(var(--hue), 100%, 26%);
+    --cor-titulo:hsl(105, 100%, 5%);
+    --cor-paragrafo:hsl(104, 16%, 24%);
+    --cor-cinza-escuro: hsl(210, 1%, 36%);
    
     --header-heigth: 7.5rem;
 
@@ -26,7 +30,7 @@ nav{
     box-sizing: border-box;
     z-index: 100;
 
-    background: var(--header-color);
+    background: transparent;
     transition: .5s;
 }
 .nav-wraper, .footer-wraper{
@@ -232,7 +236,7 @@ nav .redes-sociais{
         position: relative;
         visibility: hidden;
         transform: translateY(100%);
-
+        height: 1px;
     }
     #menu.active {
         padding: 0;

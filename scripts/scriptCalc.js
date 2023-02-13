@@ -19,11 +19,22 @@ var vlrTotalProventos = document.querySelector('#tl-proventos');
 var tlDescontos = document.querySelector('#tl-descontos');
 var resultSl = document.querySelector('#sl-liquido');
 
+ 
+ /* --- Showing result calc section--- */  
+
+function showResultCalcSection (){
+    var resultCalcSection = document.querySelector('#info-result');
+
+    resultCalcSection.classList.remove('hiddenResult');
+    resultCalcSection.classList.add('showing');
+
+};
 
 
 /* --- Main function in which it captures the input value and splits it into two calculation processes. ---*/ 
 const calcValues =()=>{
 
+    showResultCalcSection()
    
  /* --- Validator input--- */    
     if(inputValue.value == ""){
@@ -64,25 +75,25 @@ vlrDescontos.innerHTML = valorDescontos.toLocaleString('pt-BR', { style: 'curren
 
 /* --- First calculation function, which results in a value that will be used for the second process. ---*/ 
 function calcInss(value){
-if(value<= 1212.00){
+if(value<= 1302.00){
 
 value = value *0.075;
 
-}else if((value > 1212.00)&&(value<=2427.35)){
+}else if((value > 1302.00)&&(value<=2571.29)){
 
-value = (value*0.09)-18.18;
+value = (value*0.09)-19.53;
 
-}else if((value >2427.35)&&(value<=3641.03)){
+}else if((value >2571.29)&&(value<=3856.94)){
 
-value = (value*0.12)-91.00;
+value = (value*0.12)-96.67;
 
-}else if((value >3641.03)&&(value<=7087.22)){
+}else if((value >3856.94)&&(value<=7507.49)){
 
-value =(value*0.14)-163.82;
+value =(value*0.14)-173.81;
 
-}else if(value >7087.22){
+}else if(value >7507.49){
 
-value = 828.39
+value = 877.25
 
 }  
 

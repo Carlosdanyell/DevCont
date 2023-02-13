@@ -1,20 +1,4 @@
-/*=== Root =================================*/
-:root{
-    --hue: 209;
-    --cor-principal: hsl(var(--hue), 100%, 26%);
-    --cor-principal-light: hsl(calc(var(--hue) - 3), 100%, 91%);
-    --cor-principal-light2: hsl(calc(var(--hue) - 1), 100%, 97%);
-    --cor-bege-light: #fffcf5;
-    --cor-principal-hover: hsl(calc(var(--hue)-10), 100%, 14%);
-    --cor-laranja: #e6544c;
-    --header-color: hsl(206, 100%, 97%);
-    --header-scroll: hsl(var(--hue), 100%, 26%);
-    --cor-titulo:hsl(105, 100%, 5%);
-    --cor-paragrafo:hsl(104, 16%, 24%);
-    --cor-cinza-escuro: hsl(210, 1%, 36%);
-    font-size: 62.5%;
-    font-family: 'DM Sans', sans-serif;
-}
+
 /*=== Pattern =================================*/
 html{
     scroll-behavior: smooth;
@@ -27,15 +11,10 @@ body {
 }
 
 body {
-    font-family: 'DM Sans';
     font-size: 1.6rem;  
     text-align: center;
-
 }
 
-body nav{
-    background-color: transparent;
-}
 .wraper{
     width: min(50rem, 100%);
     box-sizing: border-box;
